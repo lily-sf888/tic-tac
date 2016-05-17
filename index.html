@@ -3,25 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <title>Tic Tac Toe</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-    <script type="text/javascript" src="script.js"></script>
-
+    <script src="https://code.jquery.com/jquery-latest.min.js">
+   	</script>
+    <script type="text/javascript" src="js/script.js"></script>
+     <script type="text/javascript" src="js/materialize.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	 <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	 <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+	  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 <body>
+
 <div id="content">
-    <table>
-        <tr>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-        </tr>
+	<h1 id="title">Tic Tac Toe</h1>
+	<table id="board">
+		
+		<tr id="row1">
+			<td id="square1"></td>
+			<td id="square2"></td>
+			<td id="square3"></td>
+		</tr>
+		<tr id="row2">
+			<td id="square4"></td>
+			<td id="square5"></td>
+			<td id="square6"></td>
+		</tr>
+		<tr id="row3">
+			<td id="square7"></td>
+			<td id="square8"></td>
+			<td id="square9"></td>
+		</tr>
 
-    </table>
-
+	</table>
+		
 </div>
+<section id="scores">
+	<div id="player-x" class="display">PLAYER(X)<br><span id="count1">0</span></div>
+	<div id="ties" class="display">TIES<br><span id="count2">0</span></div>
+	<div id="player-o" class="display">PLAYER(O)<br><span id="count3">0</span></div>
+</section>
 
 
 </body>
