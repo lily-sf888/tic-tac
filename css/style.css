@@ -29,6 +29,7 @@
 
 	width: 30em;
 	height: 30em;
+
 	
 }
 
@@ -43,7 +44,7 @@
 #scores {
 	margin-left: auto;
 	margin-right: auto;
-	width: 20%;
+	width: 30%;
 	padding-top: 4em;
 	padding-left: 7em;
 
@@ -51,7 +52,7 @@
 
 #new-game {
 	float: right;
-	width: 50%;
+	width: 70%;
 }
 
 
