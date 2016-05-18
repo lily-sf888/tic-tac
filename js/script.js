@@ -35,6 +35,7 @@ $(function(){
 
 	});//end click function
 
+	//adding classes to the squares that are being clicked
 	function addClassX(text){
 
 		var x = text.addClass("x");
@@ -71,8 +72,7 @@ $(function(){
 			
 			alert("Player X wins!");
 
-			$("#board").html("");
-
+			
 		} 
 
 	};//end function checkWinnerX
