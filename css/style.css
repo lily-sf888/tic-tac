@@ -29,7 +29,7 @@
 
 	width: 30em;
 	height: 30em;
-	margin-bottom: 4em;
+	
 }
 
 .display {
@@ -43,9 +43,18 @@
 #scores {
 	margin-left: auto;
 	margin-right: auto;
-	width: 25em;
+	width: 20%;
+	padding-top: 4em;
+	padding-left: 7em;
 
 }
+
+#new-game {
+	float: right;
+	width: 50%;
+}
+
+
 
 
 
