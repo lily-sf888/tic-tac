@@ -9,94 +9,106 @@ $(function(){
 		square6 = $("#square6"),
 		square7 = $("#square7"),
 		square8 = $("#square8"),
-		square9 = $("#square9");
+		square9 = $("#square9"),
+
+
+		squareArray = [
+			square1,
+			square2,
+			square3,
+			square4,
+			square5,
+			square6,
+			square7,
+			square8,
+			square9
+
+		];
 
 	//setting up player X and player O
 	var turnCount = 0;
 	
 	$("#board").find("td").on("click", function(){
+
+		var
+			$td = $(this),
+			letter = "O";
+
 		//check if turnCount is divisible by 2 
 		if (turnCount % 2 === 0){
-			
-			var text = $(this).text("X");
 
-			addClassX(text);
+			letter = "X";
+		}
+		//"X" or "O" will appear upon click
+		$td.text(letter);
+		
+		//adding class to square for finding winning combo
+		$td.addClass(letter);
 
-			
-		}else{
-			
-			var text = $(this).text("O");
-
-			addClassO(text);
-
-			}	
+		//calling function to check if it's a winning combo
+		checkWinner(letter);
 
 		turnCount++;
 
 	});//end click function
 
-	//adding classes to the squares that are being clicked
-	function addClassX(text){
+	//count for player winner score
+	var
+		countPlayerX = 0,
+		countPlayerO = 0;
 
-		var x = text.addClass("x");
-		
-		checkWinnerX(x);
-	};
 
-	function addClassO(text){
+	function checkWinner(letter){
 
-		var o = text.addClass("o");
+		//check for winning row combos
+		if(square1.hasClass(letter) && square2.hasClass(letter) && square3.hasClass(letter)||
+		  square4.hasClass(letter) && square5.hasClass(letter) && square6.hasClass(letter) ||
+		  square7.hasClass(letter) && square8.hasClass(letter) && square9.hasClass(letter) ||
+		  //check for winning diagonal combos
+		  square1.hasClass(letter) && square5.hasClass(letter) && square9.hasClass(letter) ||
+		  square3.hasClass(letter) && square5.hasClass(letter) && square7.hasClass(letter) ||
+		  //check for winning column combos
+		  square1.hasClass(letter) && square4.hasClass(letter) && square7.hasClass(letter) ||
+		  square2.hasClass(letter) && square5.hasClass(letter) && square8.hasClass(letter) ||
+		  square3.hasClass(letter) && square6.hasClass(letter) && square9.hasClass(letter)
 
-		checkWinnerO(o);
+			){
 
-	};
+			alert("Player " + letter + " wins!");
+
+			
+			//add to winner's total score count
+			if(letter == "X"){
+				
+				$("#count1").html(countPlayerX + 1);
+			
+			}else{
+
+				$("#count3").html(countPlayerO + 1);
+
+			}
+
+			
+			
+			//empty board game
+			for(i=0; i < squareArray.length; i++){
+
+				squareArray[i].text("");
+
+			}
+	
+		}
+
+	};//end function checkWinner
+
+	$("#new-game").click(function(){
+
+		location.reload();
+
+	});
+
+	$("#new-game").css("cursor", "pointer");
 
 	
-
-	function checkWinnerX(x){
-		//check for winning row combos
-		if(square1.hasClass("x") && square2.hasClass("x") && square3.hasClass("x")||
-		  square4.hasClass("x") && square5.hasClass("x") && square6.hasClass("x") ||
-		  square7.hasClass("x") && square8.hasClass("x") && square9.hasClass("x") ||
-		  //check for winning diagonal combos
-		  square1.hasClass("x") && square5.hasClass("x") && square9.hasClass("x") ||
-		  square3.hasClass("x") && square5.hasClass("x") && square7.hasClass("x") ||
-		  //check for winning column combos
-		  square1.hasClass("x") && square4.hasClass("x") && square7.hasClass("x") ||
-		  square2.hasClass("x") && square5.hasClass("x") && square8.hasClass("x") ||
-		  square3.hasClass("x") && square6.hasClass("x") && square9.hasClass("x")
-
-			){
-
-
-			
-			alert("Player X wins!");
-
-			
-		} 
-
-	};//end function checkWinnerX
-
-	function checkWinnerO(o){
-		//check for winning row combos
-		if(square1.hasClass("o") && square2.hasClass("o") && square3.hasClass("o")||
-		  square4.hasClass("o") && square5.hasClass("o") && square6.hasClass("o") ||
-		  square7.hasClass("o") && square8.hasClass("o") && square9.hasClass("o") ||
-		  //check for winning diagonal combos
-		  square1.hasClass("o") && square5.hasClass("o") && square9.hasClass("o") ||
-		  square3.hasClass("o") && square5.hasClass("o") && square7.hasClass("o") ||
-		  //check for winning column combos
-		  square1.hasClass("o") && square4.hasClass("o") && square7.hasClass("o") ||
-		  square2.hasClass("o") && square5.hasClass("o") && square8.hasClass("o") ||
-		  square3.hasClass("o") && square6.hasClass("o") && square9.hasClass("o")
-
-			){
-			
-			console.log("Player O wins!");
-
-		} 
-
-	};//end function checkWinnerO
-
 
 });//end .ready

@@ -3,16 +3,13 @@
 
 	margin-left: auto;
 	margin-right: auto;
-	width: 6em;
-
+	width: 30%;
 }
 
 #title {
 	font-size: 3em;
 	text-align: center;
-	margin: 2em auto;
-	white-space: nowrap;
-
+	margin-bottom: 2em;
 	
 }
 
@@ -25,13 +22,18 @@
 	border-right: 2px solid black;
 }
 
-#board {
+.square-display {
+	text-align: center;
+}
 
+#board {
+	table-layout: fixed;
 	width: 30em;
 	height: 30em;
-
-	
+	text-align: center;
 }
+
+
 
 .display {
 
@@ -45,14 +47,16 @@
 	margin-left: auto;
 	margin-right: auto;
 	width: 30%;
-	padding-top: 4em;
-	padding-left: 7em;
+	padding-top: 2em;
+	margin-bottom: 2em;
+	
 
 }
 
 #new-game {
 	float: right;
-	width: 70%;
+	font-size: 1.1em;
+	
 }
 
 
