@@ -16,7 +16,8 @@ $(function(){
 	//setting up player X and player O
 	var turnCount = 0;
 		
-		$("#board").find("td").on("click", function(){
+		
+	$("#board").find("td").on("click", function(){
 
 		var
 			$td = $(this),
@@ -37,8 +38,9 @@ $(function(){
 		checkWinner(letter);
 
 		turnCount++;
+		
 
-		});//end click function
+	});//end click function
 
 
 
@@ -46,8 +48,14 @@ $(function(){
 	var
 		countPlayerX = 0,
 		countPlayerO = 0;
+
 		
 	function checkWinner(letter){
+
+		
+
+		console.log(turnCount)
+
 
 		//check for winning row combos
 		if (square1.hasClass(letter) && square2.hasClass(letter) && square3.hasClass(letter)||
@@ -75,21 +83,36 @@ $(function(){
 					$("#count3").html(countPlayerO += 1);
 				} 
 
-				//check if there's a tie in the game by counting the clicks on the squares
-		        if (turnCount === 9){
 
-					$("#count2").html(turnCount += 1);
-					
-		        }
 
+				
 				emptyBoard();
 			
 		}
+
+
+		//check if there's a tie in the game by counting the clicks on the squares
+		        if (turnCount === 8){
+
+		        	
+
+		        	alert("Tie!");
+
+					turnCount = 0;
+
+					emptyBoard();
+
+					$("#count2").html(turnCount += 1);
+		        }
+
 
 	};//end function checkWinner
 
 	//empty board game
 	function emptyBoard(){
+		
+		console.log(turnCount);
+		
 
 		for (i=0; i < squareArray.length; i++){
 
