@@ -11,30 +11,18 @@ $(function(){
 		square8 = $("#square8"),
 		square9 = $("#square9"),
 
-
-		squareArray = [
-			square1,
-			square2,
-			square3,
-			square4,
-			square5,
-			square6,
-			square7,
-			square8,
-			square9
-
-		];
-
+		squareArray = [square1, square2, square3, square4, square5, square6, square7, square8, square9];
+			
 	//setting up player X and player O
 	var turnCount = 0;
-	
-	$("#board").find("td").on("click", function(){
+		
+		$("#board").find("td").on("click", function(){
 
 		var
 			$td = $(this),
 			letter = "O";
 
-		//check if turnCount is divisible by 2 
+		//check if turnCount is divisible by 2 and change to letter "X"
 		if (turnCount % 2 === 0){
 
 			letter = "X";
@@ -50,18 +38,19 @@ $(function(){
 
 		turnCount++;
 
-	});//end click function
+		});//end click function
+
+
 
 	//count for player winner score
 	var
 		countPlayerX = 0,
 		countPlayerO = 0;
-
-
+		
 	function checkWinner(letter){
 
 		//check for winning row combos
-		if(square1.hasClass(letter) && square2.hasClass(letter) && square3.hasClass(letter)||
+		if (square1.hasClass(letter) && square2.hasClass(letter) && square3.hasClass(letter)||
 		  square4.hasClass(letter) && square5.hasClass(letter) && square6.hasClass(letter) ||
 		  square7.hasClass(letter) && square8.hasClass(letter) && square9.hasClass(letter) ||
 		  //check for winning diagonal combos
@@ -72,34 +61,44 @@ $(function(){
 		  square2.hasClass(letter) && square5.hasClass(letter) && square8.hasClass(letter) ||
 		  square3.hasClass(letter) && square6.hasClass(letter) && square9.hasClass(letter)
 
-			){
-
-			alert("Player " + letter + " wins!");
-
-			
-			//add to winner's total score count
-			if(letter == "X"){
+			){ 
 				
-				$("#count1").html(countPlayerX + 1);
+				alert("Player " + letter + " wins!");
+
+				//add to winner's total score count
+				if (letter === "X"){
+					
+					$("#count1").html(countPlayerX += 1);
+					
+				} else {
+				
+					$("#count3").html(countPlayerO += 1);
+				} 
+
+				//check if there's a tie in the game by counting the clicks on the squares
+		        if (turnCount === 9){
+
+					$("#count2").html(turnCount += 1);
+					
+		        }
+
+				emptyBoard();
 			
-			}else{
-
-				$("#count3").html(countPlayerO + 1);
-
-			}
-
-			
-			
-			//empty board game
-			for(i=0; i < squareArray.length; i++){
-
-				squareArray[i].text("");
-
-			}
-	
 		}
 
 	};//end function checkWinner
+
+	//empty board game
+	function emptyBoard(){
+
+		for (i=0; i < squareArray.length; i++){
+
+			squareArray[i].text("");
+
+			squareArray[i].removeClass().addClass("square-display");
+		}
+
+	};
 
 	$("#new-game").click(function(){
 
@@ -108,7 +107,5 @@ $(function(){
 	});
 
 	$("#new-game").css("cursor", "pointer");
-
-	
 
 });//end .ready
