@@ -13,16 +13,17 @@ $(function(){
 
 		squareArray = [square1, square2, square3, square4, square5, square6, square7, square8, square9];
 			
-	//setting up player X and player O
+	//setting up counter for clicks
 	var turnCount = 0;
-		
-		
+				
 	$("#board").find("td").on("click", function(){
 
 		var
 			$td = $(this),
 			letter = "O";
 
+		turnCount++;
+		
 		//check if turnCount is divisible by 2 and change to letter "X"
 		if (turnCount % 2 === 0){
 
@@ -33,29 +34,19 @@ $(function(){
 		
 		//adding class to square for finding winning combo
 		$td.addClass(letter);
-
+		
 		//calling function to check if it's a winning combo
 		checkWinner(letter);
 
-		turnCount++;
-		
-
 	});//end click function
 
-
-
-	//count for player winner score
+	//count for player winner score and ties
 	var
 		countPlayerX = 0,
-		countPlayerO = 0;
-
+		countPlayerO = 0,
+		countTies = 0;
 		
 	function checkWinner(letter){
-
-		
-
-		console.log(turnCount)
-
 
 		//check for winning row combos
 		if (square1.hasClass(letter) && square2.hasClass(letter) && square3.hasClass(letter)||
@@ -83,37 +74,26 @@ $(function(){
 					$("#count3").html(countPlayerO += 1);
 				} 
 
-
-
-				
 				emptyBoard();
-			
 		}
 
-
 		//check if there's a tie in the game by counting the clicks on the squares
-		        if (turnCount === 8){
+		if (turnCount === 9){
 
-		        	
+		    alert("Tie!");
 
-		        	alert("Tie!");
+			$("#count2").html(countTies += 1);
 
-					turnCount = 0;
-
-					emptyBoard();
-
-					$("#count2").html(turnCount += 1);
-		        }
-
+			emptyBoard();
+		}
 
 	};//end function checkWinner
 
 	//empty board game
 	function emptyBoard(){
 		
-		console.log(turnCount);
+		turnCount = 0;
 		
-
 		for (i=0; i < squareArray.length; i++){
 
 			squareArray[i].text("");
