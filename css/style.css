@@ -14,12 +14,12 @@
 }
 
 #row1, #row2 {
-	border-bottom: 3px solid black;
+	border-bottom: 3px solid #66ff99;
 }
 
 
 #square1, #square2, #square4, #square5, #square7, #square8 {
-	border-right: 3px solid black;
+	border-right: 3px solid #66ff99;
 }
 
 #square1, #square2, #square3, #square4, #square5, #square6, #square7, #square8, #square9 {
@@ -47,13 +47,14 @@
 	display: inline-block;
 	padding-right: 2em;
 	text-align: center;
+	color: #00ffff;
 }
 
 
 #scores {
 	margin-left: auto;
 	margin-right: auto;
-	width: 30%;
+	width: 500px;
 	padding-top: 2em;
 	margin-bottom: 2em;
 	
@@ -63,6 +64,7 @@
 #new-game {
 	float: right;
 	font-size: 1.1em;
+	color: #ff00ff;
 	
 }
 
