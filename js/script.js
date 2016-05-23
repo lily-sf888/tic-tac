@@ -13,9 +13,13 @@ $(function(){
 
 		squareArray = [square1, square2, square3, square4, square5, square6, square7, square8, square9];
 			
-	//setting up counter for clicks
-	var turnCount = 0;
-				
+	//setting up counters
+	var 
+		turnCount = 0,
+		countPlayerX = 0,
+		countPlayerO = 0,
+		countTies = 0;
+						
 	$("#board").find("td").on("click", function(){
 
 		var
@@ -39,12 +43,6 @@ $(function(){
 		checkWinner(letter);
 
 	});//end click function
-
-	//count for player winner score and ties
-	var
-		countPlayerX = 0,
-		countPlayerO = 0,
-		countTies = 0;
 		
 	function checkWinner(letter){
 
