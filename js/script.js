@@ -60,7 +60,7 @@ $(function(){
 
 			){ 
 				
-				alert("Player " + letter + " wins!");
+				swal("Player " + letter + " wins!");
 
 				//add to winner's total score count
 				if (letter === "X"){
@@ -78,7 +78,7 @@ $(function(){
 		//check if there's a tie in the game by counting the clicks on the squares
 		if (turnCount === 9){
 
-		    alert("Tie!");
+		    swal("It's a tie!");
 
 			$("#count2").html(countTies += 1);
 
