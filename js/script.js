@@ -22,11 +22,16 @@ $(function(){
 						
 	$("#board").find("td").on("click", function(){
 
+		/*if(!$td.text()) {
+				turnCount++;*/
+
 		var
 			$td = $(this),
 			letter = "O";
 
-		turnCount++;
+		if(!$td.text()) {
+			turnCount++;
+		}
 		
 		//check if turnCount is divisible by 2 and change to letter "X"
 		if (turnCount % 2 === 0){
