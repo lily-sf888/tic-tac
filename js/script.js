@@ -27,12 +27,17 @@ $(function(){
 
 		var
 			$td = $(this),
-			letter = "O";
+			letter = "O",
+			textInTd = $td.text();
 
-		if(!$td.text()) {
-			turnCount++;
+		//if the cell already has a value, stop here
+		if( textInTd !== "" ) {
+
+			return;
 		}
-		
+
+		turnCount++;		
+
 		//check if turnCount is divisible by 2 and change to letter "X"
 		if (turnCount % 2 === 0){
 
