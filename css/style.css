@@ -45,13 +45,13 @@ body{
 }
 
 #board {
-	
+
 	width: 30em;
 	height: 30em;
 	margin-left: auto;
 	margin-right: auto;
 	color: 9900FF;
-	
+
 	}
 
 
@@ -60,7 +60,7 @@ body{
 	display: inline-block;
 	padding-right: 2em;
 	text-align: center;
-	color: #00ffff;
+	color: #66ff99;
 }
 
 #scores {
@@ -74,16 +74,5 @@ body{
 #new-game {
 	float: right;
 	font-size: 1.1em;
-	color: #ff00ff;
+	color: #9900FF;
 }
-
-
-
-
-
-
-
-
-
-
-
